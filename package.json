@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/kundigo/react-native-telephone-input#readme",
   "dependencies": {
+    "google-libphonenumber": "^1.0.22",
     "react": "^15.1.0",
     "react-native": "^0.27.2"
   }

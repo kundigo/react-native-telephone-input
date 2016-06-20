@@ -19,31 +19,44 @@ export default class TelephoneInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      countryName: '',
+      iso_code: '',
+      best_choice: '',
     };
   }
 
-  getCountryName(dialCode){
+  guessSelectedCountry(phoneNumber){
     for(var i = 0; i < allCountriesObject.length; i++){
-      if(allCountriesObject[i].dialCode == dialCode){
-        this.setState({countryName: allCountriesObject[i].name });
+      if(allCountriesObject[i].dialCode == phoneNumber){
+        let iso_code = allCountriesObject[i].iso2.toUpperCase()
+        this.setState({ best_choice: iso_code });
         return;
       }else{
-        this.setState({countryName: '' });
+        if(phoneNumber.length < 4){
+          this.setState({ iso_code: '' });
+        }
+
+        if(phoneNumber.length > 4){
+          this.setState({ iso_code: this.state.best_choice });
+        }
+
       }
     }
   }
 
+  getCountryName(phoneNumber){
+    return this.guessSelectedCountry(phoneNumber.substring(0, 6));
+  }
+
   render() {
-    var { style } = this.props;
+    var { style, input_style } = this.props;
 
     return (
       <View>
+        <Text>{ this.state.iso_code }</Text>
         <TextInput
           onChange={(event) => this.getCountryName(event.nativeEvent.text)}
           {...this.props}
         />
-        <Text>{ this.state.countryName }</Text>
       </View>
     );
   }
