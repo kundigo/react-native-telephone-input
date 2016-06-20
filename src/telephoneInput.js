@@ -16,48 +16,80 @@ const allCountriesObject = _.map(allCountries, function(country) {
 
 export default class TelephoneInput extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      iso_code: '',
-      best_choice: '',
-    };
-  }
+    constructor(props) {
+      super(props);
+      this.state = {
+        iso_code: '',
+        best_choice: '',
+      };
+    }
 
-  guessSelectedCountry(phoneNumber){
-    for(var i = 0; i < allCountriesObject.length; i++){
-      if(allCountriesObject[i].dialCode == phoneNumber){
-        let iso_code = allCountriesObject[i].iso2.toUpperCase()
-        this.setState({ best_choice: iso_code });
-        return;
-      }else{
-        if(phoneNumber.length < 4){
-          this.setState({ iso_code: '' });
+    formatNumber(text, pattern) {
+          if(!text || text.length === 0) {
+              return '+';
+          }
+
+          // for all strings with length less than 3, just return it (1, 2 etc.)
+          // also return the same text if the selected country has no fixed format
+          if((text && text.length < 2) || !pattern || !this.props.autoFormat) {
+              return `+${text}`;
+          }
+
+          var formattedObject = reduce(pattern, function(acc, character) {
+              if(acc.remainingText.length === 0) {
+                  return acc;
+              }
+
+              if(character !== '.') {
+                  return {
+                      formattedText: acc.formattedText + character,
+                      remainingText: acc.remainingText
+                  };
+              }
+
+              return {
+                  formattedText: acc.formattedText + first(acc.remainingText),
+                  remainingText: rest(acc.remainingText)
+              };
+          }, {formattedText: '', remainingText: text.split('')});
+          return formattedObject.formattedText + formattedObject.remainingText.join('');
+    }
+
+    guessSelectedCountry(phoneNumber){
+
+      for(var i = 0; i < allCountriesObject.length; i++){
+        if(allCountriesObject[i].dialCode == phoneNumber){
+          let iso_code = allCountriesObject[i].iso2.toUpperCase()
+          this.setState({ best_choice: iso_code });
+          return;
+        }else{
+          if(phoneNumber.length < 4){
+            this.setState({ iso_code: '' });
+          }
+
+          if(phoneNumber.length > 4){
+            this.setState({ iso_code: this.state.best_choice });
+          }
+
         }
-
-        if(phoneNumber.length > 4){
-          this.setState({ iso_code: this.state.best_choice });
-        }
-
       }
     }
-  }
 
-  getCountryName(phoneNumber){
-    return this.guessSelectedCountry(phoneNumber.substring(0, 6));
-  }
+    getCountryName(phoneNumber){
+      return this.guessSelectedCountry(phoneNumber);
+    }
 
-  render() {
-    var { style, input_style } = this.props;
+    render() {
+      var { style, input_style } = this.props;
 
-    return (
-      <View>
-        <Text>{ this.state.iso_code }</Text>
-        <TextInput
-          onChange={(event) => this.getCountryName(event.nativeEvent.text)}
-          {...this.props}
-        />
-      </View>
-    );
-  }
+      return (
+        <View style={{flexDirection:'row', flex: 1}}>
+          <Text style={{flex: 1}} >{ this.state.iso_code }</Text>
+          <TextInput style={{flex: 2}}
+            onChange={(event) => this.getCountryName(event.nativeEvent.text)}
+            {...this.props}
+          />
+        </View>
+      );
+    }
 }
