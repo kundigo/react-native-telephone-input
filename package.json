@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/kundigo/react-native-telephone-input/issues"
   },
-  "homepage": "https://github.com/kundigo/react-native-telephone-input#readme"
+  "homepage": "https://github.com/kundigo/react-native-telephone-input#readme",
+  "dependencies": {
+    "react": "^15.1.0",
+    "react-native": "^0.27.2"
+  }
 }
