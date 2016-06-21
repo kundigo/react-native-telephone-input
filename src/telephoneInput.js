@@ -23,7 +23,6 @@ const allCountriesObject = _.map(allCountries, function(country) {
 
 export default class TelephoneInput extends Component {
 
-
     constructor(props) {
       super(props);
       this.state = {
@@ -65,7 +64,6 @@ export default class TelephoneInput extends Component {
     }
 
     guessSelectedCountry(phoneNumber){
-      var a = allCountriesWithFormat;
 
       for(var i = 0; i < allCountriesObject.length; i++){
         if(allCountriesObject[i].dialCode == phoneNumber){
@@ -73,11 +71,10 @@ export default class TelephoneInput extends Component {
           this.setState({ best_choice: iso_code, index: i });
           return;
         }else{
-          if(phoneNumber.length < 4){
-            this.setState({ iso_code: '' });
-          }
 
-          if(phoneNumber.length > 4){
+          if(phoneNumber.length < 4){
+            this.setState({ iso_code: '', formattedNumber: phoneNumber});
+          }else{
             let formattedNumber = this.formatNumber(phoneNumber.replace(/\D/g, ''), allCountriesWithFormat[this.state.index].format);
             this.setState({ iso_code: this.state.best_choice, formattedNumber: formattedNumber });
           }
