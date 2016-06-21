@@ -1246,17 +1246,6 @@ var addCountryCode = function(iso2, dialCode, priority) {
   allCountryCodes[dialCode][index] = iso2;
 };
 
-// loop over all of the countries above
-// allCountries2 = _.map(allCountries, function(country) {
-//   return {
-//     name: country[0],
-//     iso2: country[1],
-//     dialCode: country[2],
-//     format: country[3],
-//     hasAreaCodes: country.length > 4
-//   }
-// });
-
 for (var i = 0; i < allCountries.length; i++) {
     // countries
     var c = allCountries[i];
@@ -1286,8 +1275,13 @@ for (var i = 0; i < allCountries.length; i++) {
     addCountryCode(c[1], c[2], c[4]);
 }
 
+var allCountriesObject = _.map(allCountries, function(country) {
+  return country;
+});
+
 module.exports = {
             allCountries: allCountries,
+            allCountriesObject: allCountriesObject,
             allCountriesIso2Lookup: allCountriesIso2Lookup,
             allCountryCodes: allCountryCodes
         };
