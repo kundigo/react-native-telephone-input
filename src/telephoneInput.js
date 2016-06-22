@@ -27,8 +27,6 @@ export default class TelephoneInput extends Component {
     return this.guessSelectedCountry(phoneNumber);
   }
   formatNumber(text, pattern) {
-    let formattedObject;
-
     if (!text || text.length === 0) {
       return '+';
     }
@@ -39,7 +37,7 @@ export default class TelephoneInput extends Component {
       return `+${text}`;
     }
 
-    formattedObject = reduce(pattern, function (acc, character) {
+    const formattedObject = reduce(pattern, (acc, character) => {
       if (acc.remainingText.length === 0) {
         return acc;
       }
@@ -61,8 +59,8 @@ export default class TelephoneInput extends Component {
   guessSelectedCountry(phoneNumber) {
     for (let i = 0; i < allCountriesObject.length; i++) {
       if (allCountriesObject[i].dialCode === phoneNumber) {
-        let iso_code = allCountriesObject[i].iso2.toUpperCase();
-        this.setState({ best_choice: iso_code, index: i });
+        const isoCcode = allCountriesObject[i].iso2.toUpperCase();
+        this.setState({ best_choice: isoCcode, index: i });
         break;
       } else {
         if (phoneNumber.length < 4) {
