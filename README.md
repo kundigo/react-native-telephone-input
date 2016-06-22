@@ -2,16 +2,40 @@
 
 This library is a forked of [React Telephone Input](https://github.com/mukeshsoni/react-telephone-input).
 
-## Usage
+- Basic feature for mask and country discover
+- Support iOS and Android
+
+## Basic Usage
 
 ```javascript
-render() {
-  return (
-    <View>
-      <TelephoneInput placeholder="Number here, please" />
-    </View>
-  );
+import React, { Component } from 'react';
+import {
+  AppRegistry,
+  StyleSheet,
+  View
+} from 'react-native';
+import TelephoneInput from 'react-native-telephone-input';
 
+class ExampleProject extends Component {
+  render() {
+    return (
+      <View style={[styles.container]}>
+        <TelephoneInput placeholder="Number here, please" />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+});
+
+AppRegistry.registerComponent('ExampleProject', () => ExampleProject);
 ```
 
 ## Contributing
