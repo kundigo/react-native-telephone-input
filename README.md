@@ -7,6 +7,8 @@ This library is a forked of [React Telephone Input](https://github.com/mukeshson
 
 ## Basic Usage
 
+You can find an [ExampleProject](./ExampleProject).
+
 ```javascript
 import React, { Component } from 'react';
 import {
