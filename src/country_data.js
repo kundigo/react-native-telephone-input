@@ -1,5 +1,4 @@
-'use strict';
-var map = require('lodash.map');
+const map = require('lodash.map');
 
 // So each country array has the following information:
 // [
@@ -10,7 +9,7 @@ var map = require('lodash.map');
 //    Order (if >1 country with same dial code),
 //    Area codes (if >1 country with same dial code)
 // ]
-var allCountries = [
+const allCountries = [
   [
     'Afghanistan (‫افغانستان‬‎)',
     'af',
@@ -1237,19 +1236,20 @@ var allCountries = [
 ];
 
 // we will build this in the loop below
-var allCountryCodes = {};
-var allCountriesIso2Lookup = {};
-var addCountryCode = function (iso2, dialCode, priority) {
+const allCountryCodes = {};
+const allCountriesIso2Lookup = {};
+
+const addCountryCode = (iso2, dialCode, priority) => {
   if (!(dialCode in allCountryCodes)) {
     allCountryCodes[dialCode] = [];
   }
-  var index = priority || 0;
+  const index = priority || 0;
   allCountryCodes[dialCode][index] = iso2;
 };
 
-for (var i = 0; i < allCountries.length; i++) {
+for (let i = 0; i < allCountries.length; i++) {
     // countries
-  var c = allCountries[i];
+  const c = allCountries[i];
   allCountries[i] = {
     name: c[0],
     iso2: c[1],
@@ -1264,9 +1264,9 @@ for (var i = 0; i < allCountries.length; i++) {
     // area codes
   if (c[5]) {
     allCountries[i].hasAreaCodes = true;
-    for (var j = 0; j < c[5].length; j++) {
+    for (let j = 0; j < c[5].length; j++) {
             // full dial code is country code + dial code
-      var dialCode = c[2] + c[5][j];
+      const dialCode = c[2] + c[5][j];
       addCountryCode(c[1], dialCode);
     }
   }
@@ -1276,13 +1276,11 @@ for (var i = 0; i < allCountries.length; i++) {
   addCountryCode(c[1], c[2], c[4]);
 }
 
-var allCountriesObject = map(allCountries, function (country) {
-  return country;
-});
+const allCountriesObject = map(allCountries, country => country);
 
 module.exports = {
-  allCountries: allCountries,
-  allCountriesObject: allCountriesObject,
-  allCountriesIso2Lookup: allCountriesIso2Lookup,
-  allCountryCodes: allCountryCodes,
+  allCountries,
+  allCountriesObject,
+  allCountriesIso2Lookup,
+  allCountryCodes,
 };
