@@ -1,0 +1,32 @@
+{
+  "name": "react-native-telephone-input",
+  "version": "1.0.0",
+  "description": "React Native Telephone Input",
+  "main": "src/telephoneInput.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kundigo/react-native-telephone-input.git"
+  },
+  "keywords": [
+    "react-native",
+    "telephone",
+    "input"
+  ],
+  "author": "Kundigo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kundigo/react-native-telephone-input/issues"
+  },
+  "homepage": "https://github.com/kundigo/react-native-telephone-input#readme",
+  "dependencies": {
+    "lodash.first": "^3.0.0",
+    "lodash.map": "^4.4.0",
+    "lodash.reduce": "^4.4.0",
+    "lodash.tail": "^4.0.4",
+    "react": "^15.1.0",
+    "react-native": "^0.28.0"
+  }
+}
