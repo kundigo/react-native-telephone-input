@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -11,26 +5,13 @@ import {
   Text,
   View
 } from 'react-native';
-import TelephoneInput from './telephoneInput';
+import TelephoneInput from 'react-native-telephone-input';
 
 class ExampleProject extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <View style={{ marginTop: 80}}>
-          <TelephoneInput style={styles.default} placeholder="Number here, please" />
-        </View>
-
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+      <View style={[styles.container]}>
+        <TelephoneInput placeholder="Number here, please" />
       </View>
     );
   }
@@ -42,16 +23,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
   },
 });
 

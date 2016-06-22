@@ -1,4 +1,5 @@
 'use strict';
+var map = require('lodash.map');
 
 // So each country array has the following information:
 // [
@@ -1275,7 +1276,7 @@ for (var i = 0; i < allCountries.length; i++) {
     addCountryCode(c[1], c[2], c[4]);
 }
 
-var allCountriesObject = _.map(allCountries, function(country) {
+var allCountriesObject = map(allCountries, function(country) {
   return country;
 });
 

@@ -88,9 +88,9 @@ export default class TelephoneInput extends Component {
     var { style, input_style } = this.props;
 
     return (
-      <View style={{flexDirection:'row', flex: 1}}>
-        <Text style={{flex: 1}} >{ this.state.iso_code }</Text>
-        <TextInput style={{flex: 2}}
+      <View style={{flexDirection:'row', height: 40}}>
+        <Text style={{flex: 1, fontSize: 20, marginTop: 7}} >{ this.state.iso_code }</Text>
+        <TextInput style={{flex: 8, fontSize: 20}}
           value={this.state.formattedNumber}
           onChange={(event) => this.getCountryName(event.nativeEvent.text)}
           {...this.props}
