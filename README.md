@@ -5,6 +5,8 @@ This library is a forked of [React Telephone Input](https://github.com/mukeshson
 - Basic feature for mask and country discover
 - Support iOS and Android
 
+![react-native-activity-view](React_Native_Telephone_Input_Example.gif)
+
 ## Basic Usage
 
 You can find an [ExampleProject](./ExampleProject).
