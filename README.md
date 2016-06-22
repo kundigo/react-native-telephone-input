@@ -42,6 +42,17 @@ const styles = StyleSheet.create({
 AppRegistry.registerComponent('ExampleProject', () => ExampleProject);
 ```
 
+## Lint
+
+- [eslint](http://eslint.org/)
+- [AirBnb Javascript Styleguide](https://github.com/airbnb/javascript)
+- [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y)
+- [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)
+
+```
+npm run lint
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/kundigo/react-native-telephone-input/fork )
