@@ -4,7 +4,8 @@
   "description": "React Native Telephone Input",
   "main": "src/telephoneInput.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./src/*"
   },
   "repository": {
     "type": "git",
@@ -22,11 +23,18 @@
   },
   "homepage": "https://github.com/kundigo/react-native-telephone-input#readme",
   "dependencies": {
-    "lodash.first": "^3.0.0",
-    "lodash.map": "^4.4.0",
-    "lodash.reduce": "^4.4.0",
-    "lodash.tail": "^4.0.4",
-    "react": "^15.1.0",
-    "react-native": "^0.28.0"
+    "lodash.first": "3.0.0",
+    "lodash.map": "4.4.0",
+    "lodash.reduce": "4.4.0",
+    "lodash.tail": "4.0.4",
+    "react": "15.1.0",
+    "react-native": "0.28.0"
+  },
+  "devDependencies": {
+    "eslint": "2.13.1",
+    "eslint-config-airbnb": "9.0.1",
+    "eslint-plugin-import": "1.9.2",
+    "eslint-plugin-jsx-a11y": "1.5.3",
+    "eslint-plugin-react": "5.2.2"
   }
 }
