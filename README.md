@@ -1,5 +1,7 @@
 # React Native Telephone Input
 
+[![npm version](https://badge.fury.io/js/react-native-telephone-input.svg)](https://badge.fury.io/js/react-native-telephone-input)
+
 This library is a forked of [React Telephone Input](https://github.com/mukeshsoni/react-telephone-input).
 
 - Basic feature for mask and country discover
