@@ -14,7 +14,11 @@ import {
 } from 'react-native';
 
 export default class TelephoneInput extends Component {
-
+  static propTypes = {
+	wrapperStyle: React.PropTypes.object,
+	countryStyle: React.PropTypes.object,
+	textStyle: React.PropTypes.object,
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -78,12 +82,12 @@ export default class TelephoneInput extends Component {
   }
   render() {
     return (
-      <View style={{ flexDirection: 'row', height: 40 }}>
-        <Text style={{ flex: 1, fontSize: 20, marginTop: 7 }} >{this.state.iso_code}</Text>
+      <View style={[{ flex: 1, flexDirection: 'row' }, this.props.wrapperStyle]}>
+        <Text style={[{ flex: 0.1 }, this.props.countryStyle]} >{this.state.iso_code}</Text>
         <TextInput
-          style={{ flex: 8, fontSize: 20 }}
+          style={[{ flex: 0.9, }, this.props.textStyle]}
           value={this.state.formattedNumber}
-          onChange={(event) => this.getCountryName(event.nativeEvent.text)}
+          onChange={(event) => {this.getCountryName(event.nativeEvent.text)}}
           {...this.props}
         />
       </View>
