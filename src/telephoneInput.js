@@ -14,7 +14,11 @@ import {
 } from 'react-native';
 
 export default class TelephoneInput extends Component {
-
+  static propTypes = {
+	wrapperStyle: React.PropTypes.object,
+	countryStyle: React.PropTypes.object,
+	textStyle: React.PropTypes.object,
+  }
   constructor(props) {
     super(props);
     this.state = {
