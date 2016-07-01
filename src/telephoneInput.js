@@ -15,9 +15,9 @@ import {
 
 export default class TelephoneInput extends Component {
   static propTypes = {
-	wrapperStyle: React.PropTypes.object,
-	countryStyle: React.PropTypes.object,
-	textStyle: React.PropTypes.object,
+	wrapperStyle: React.PropTypes.style,
+	countryStyle: React.PropTypes.style,
+	textStyle: React.PropTypes.style,
   }
   constructor(props) {
     super(props);
