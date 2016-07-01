@@ -15,9 +15,9 @@ import {
 
 export default class TelephoneInput extends Component {
   static propTypes = {
-	wrapperStyle: View.PropTypes.style,
-	countryStyle: Text.PropTypes.style,
-	textStyle: TextInput.PropTypes.style,
+	wrapperStyle: View.propTypes.style,
+	countryStyle: Text.propTypes.style,
+	textStyle: TextInput.propTypes.style,
   }
   constructor(props) {
     super(props);
