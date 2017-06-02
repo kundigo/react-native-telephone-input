@@ -13,7 +13,7 @@ import {
   TextInput,
 } from 'react-native';
 
-export default class TelephoneInput extends Component {
+class TelephoneInput extends Component {
   static propTypes = {
 	wrapperStyle: View.propTypes.style,
 	countryStyle: Text.propTypes.style,
@@ -99,3 +99,9 @@ export default class TelephoneInput extends Component {
     );
   }
 }
+
+TelephoneInput.defaultProps = {
+  displayCountry: true,
+};
+
+export default TelephoneInput;
