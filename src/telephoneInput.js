@@ -18,7 +18,7 @@ class TelephoneInput extends Component {
 	wrapperStyle: View.propTypes.style,
 	countryStyle: Text.propTypes.style,
 	textStyle: TextInput.propTypes.style,
-  displayCountry: React.PropTypes.boolean,
+    displayCountry: React.PropTypes.boolean,
   }
   constructor(props) {
     super(props);
